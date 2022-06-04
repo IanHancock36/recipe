@@ -1,6 +1,7 @@
 
 import React from 'react'
 import {Link} from "react-router-dom"
+import './RecipeList.css'
 export default function RecipeList ({ recipes }) {
    console.log(recipes)
   return (
@@ -10,7 +11,8 @@ export default function RecipeList ({ recipes }) {
           <h3>{recipe.title}</h3>
           <p>{recipe.cookingTime} to make.</p>
           <div>{recipe.method.substring(0, 100)}...</div>
-          <Link to={`${recipe.id}` }>Cook This</Link>
+          <Link to={`/recipes/${recipe.id}`}>Cook This</Link>
+          <div></div>
         </div>
       ))}
     </div>
