@@ -16,10 +16,11 @@ function Recipe() {
       <>
       <h2 className="page-title">{recipe.title}</h2>
       <p>Takes {recipe.cookingTime}</p>
-      {/* cycling through array of strings with map */}
+      {/* cycling through array of strings with map when one layer has already been drilled down with a map map on a map */}
       <ul>
-        {recipe.ingredients.map(ing => <li>{ing}</li>)}
+        {recipe.ingredients.map(ing => <li key={ing}>{ing}</li>)}
       </ul>
+      <p className="method">{recipe.method}</p>
       </>
       
       )}
