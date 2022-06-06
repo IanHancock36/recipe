@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Create.css";
 
 function Create() {
@@ -7,6 +7,7 @@ function Create() {
   const [cookingTime, setCookingTime] = useState("");
   const [newIngredients, setNewIngredients] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const ingredientInput = useRef(null)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +19,15 @@ function Create() {
     // takes away white space on the input
     const ing = newIngredients.trim()
     // this looks at ingredients array and checks to see if there is the same ingredient there so we do not 
-    // so we dont have a duplicate ingredient
-  if(ing && !ingredients.includes(ing))
+    // so we dont have a duplicate ingredient if it is already there it wont get added again
+  if(ing && !ingredients.includes(ing)){
+  // taking previous state then adding the new ingredient to the end of the array using spread operator.
+  setIngredients(prevIngredients => [...prevIngredients, ing])
+  }
+  // after the "if check and the new ingredient is added we need to reset our state"
+  setNewIngredients("")
+  // this will return our input back to empty
+  ingredientInput.current.focus()
 
   }
 
@@ -36,7 +44,9 @@ function Create() {
             onChange={(e) => setTitle(e.target.value)}
             // two way binding whatever changes user or not will be reflected here
             value={title}
-            required
+            ref = {ingredientInput}
+
+    
           />
         </label>
         <label>
