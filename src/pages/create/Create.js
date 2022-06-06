@@ -5,10 +5,22 @@ function Create() {
   const [title, setTitle] = useState("");
   const [method, setMethod] = useState("");
   const [cookingTime, setCookingTime] = useState("");
+  const [newIngredients, setNewIngredients] = useState("");
+  const [ingredients, setIngredients] = useState([]);
 
-  const handleSubmit = (e)=> {
-e.preventDefault()
-console.log(title,method,cookingTime)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(title, method, cookingTime);
+  };
+  const handleAdd = (e) => {
+
+    e.preventDefault()
+    // takes away white space on the input
+    const ing = newIngredients.trim()
+    // this looks at ingredients array and checks to see if there is the same ingredient there so we do not 
+    // so we dont have a duplicate ingredient
+  if(ing && !ingredients.includes(ing))
+
   }
 
   return (
@@ -26,6 +38,19 @@ console.log(title,method,cookingTime)
             value={title}
             required
           />
+        </label>
+        <label>
+          <span>Recipe Ingredients </span>
+          <div className="ingredients">
+            <input
+              type="text"
+              onChange={(e) => setNewIngredients(e.target.value)}
+              value={newIngredients}
+            />
+            <button onClick={handleAdd} className="btn">
+              add
+            </button>
+          </div>
         </label>
         <label>
           <span>Recipe Method </span>
