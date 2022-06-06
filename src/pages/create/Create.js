@@ -11,7 +11,7 @@ function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, method, cookingTime);
+    console.log(title, method, cookingTime, ingredients);
   };
   const handleAdd = (e) => {
 
@@ -62,6 +62,8 @@ function Create() {
             </button>
           </div>
         </label>
+        {/* <em></em> is emphisise tag */}
+        <p>Current Ingredients: {ingredients.map(i => <em key={ingredients}>{i} , </em>)}</p>
         <label>
           <span>Recipe Method </span>
 
