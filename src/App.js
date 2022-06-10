@@ -13,17 +13,17 @@ function App() {
       <BrowserRouter>
       <Navbar/>
       <Switch>
-        <Route exact path ='/'>
+        <Route exact path ="/">
           <Home/>
         </Route>
-        <Route exact path ='/create'>
+        <Route exact path ="/create">
           <Create/>
         </Route>
-        <Route exact path ='/search'>
+        <Route exact path ="/search">
           <Search/>
         </Route>
         {/* gives a route param to indenify which id and or recipe */}
-        <Route exact path ='/recipes/:id'>
+        <Route exact path ="/recipes/:id">
           <Recipe/>
         </Route>
       </Switch>

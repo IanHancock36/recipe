@@ -9,7 +9,7 @@ function Create() {
   const [newIngredients, setNewIngredients] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef(null)
-  const {postData, data, error} = useFetch("http://localhost:3001/recipes", "POST")
+  const {postData, data, error} = useFetch("http://localhost:3000/recipes", "POST")
 
   const handleSubmit = (e) => {
     e.preventDefault();
